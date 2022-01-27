@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import Router from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
@@ -63,8 +63,8 @@ const routes = [
   }
 ]
 
-const router = createRouter({
-  history: createWebHistory(),
+const router = new Router({
+  mode: 'history',
   routes
 })
 
