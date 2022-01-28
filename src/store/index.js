@@ -85,19 +85,19 @@ export default createStore({
   },
   actions: {
     async getDepartments({ commit }) {
-      await axios.get('https://wmbackend.azurewebsites.net/depts/')
+      await axios.get('https://wmbackend.herokuapp.com/depts/')
         .then(response => {
           commit('setDepartments', response.data)
         });
     },
     async getDepartmentById({ commit }, id) {
-      await axios.get('https://wmbackend.azurewebsites.net/depts/' + id)
+      await axios.get('https://wmbackend.herokuapp.com/depts/' + id)
         .then(response => {
           commit('setDepartments', response.data)
         });
     },
     async createDepartment({ commit }, department) {
-      await axios.post('https://wmbackend.azurewebsites.net/depts/', {
+      await axios.post('https://wmbackend.herokuapp.com/depts/', {
         name: department.name,
         description: department.description
       }).then(response => {
@@ -105,23 +105,23 @@ export default createStore({
         });
     },
     async updateDepartment({ commit }, department) {
-      await axios.put('https://wmbackend.azurewebsites.net/depts/', department).then(response => {
+      await axios.put('https://wmbackend.herokuapp.com/depts/', department).then(response => {
         commit('updateDepartment', response.data)
       });
     },
     async deleteDepartment({ commit }, id) {
-      await axios.delete('https://wmbackend.azurewebsites.net/depts/', { data: id }).then(response => {
+      await axios.delete('https://wmbackend.herokuapp.com/depts/', { data: id }).then(response => {
         commit('deleteDepartment', response.data)
       });
     },
     async getWorkstations({ commit }) {
-      await axios.get('https://wmbackend.azurewebsites.net/works/')
+      await axios.get('https://wmbackend.herokuapp.com/works/')
         .then(response => {
           commit('setWorkstations', response.data)
         });
     },
     async getWorkstationById({ commit }, id) {
-      await axios.get('https://wmbackend.azurewebsites.net/works/' + id)
+      await axios.get('https://wmbackend.herokuapp.com/works/' + id)
         .then(response => {
           commit('setWorkstations', response.data)
         });
@@ -133,7 +133,7 @@ export default createStore({
         });
     },
     async createWorkstation({ commit }, workstation) {
-      await axios.post('https://wmbackend.azurewebsites.net/works/', {
+      await axios.post('https://wmbackend.herokuapp.com/works/', {
         name: workstation.name,
         ip_address: workstation.ip_address,
         department_id: workstation.department_id,
@@ -149,12 +149,12 @@ export default createStore({
       });
     },
     async updateWorkstation({ commit }, workstation) {
-      await axios.put('https://wmbackend.azurewebsites.net/works/', workstation).then(response => {
+      await axios.put('https://wmbackend.herokuapp.com/works/', workstation).then(response => {
         commit('updateWorkstation', response.data)
       });
     },
     async deleteWorkstation({ commit }, id) {
-      await axios.delete('https://wmbackend.azurewebsites.net/works/', { data: id }).then(response => {
+      await axios.delete('https://wmbackend.herokuapp.com/works/', { data: id }).then(response => {
         commit('deleteWorkstation', response.data);
       })
     }
